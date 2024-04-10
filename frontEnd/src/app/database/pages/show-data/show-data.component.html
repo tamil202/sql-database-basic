@@ -1,0 +1,63 @@
+<section class="container mx-auto p-6 font-mono">
+   
+   <div class="flex w-full">
+    
+    <span>Tables <app-show-table></app-show-table></span> <span class="flex w-full justify-center">Selected table {{value}}</span>
+    <span class="flex w-full justify-end">
+        DataBase : TEST
+    </span>
+   </div>
+    <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+        <div class="w-full overflow-x-auto">
+            <table class="w-full">
+                <thead>
+                   @if (ifShow) {
+                    <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                        @for (item of describe ; track $index) {
+                        <th class="px-4 py-3">{{item.Field}}</th>
+                        }
+                    </tr>
+                   }
+                    <tr
+                        class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                       @for (item of vall ; track $index) {
+                        <th class="px-4 py-3">{{item}}</th>
+                       }
+                    </tr>
+                </thead>
+                @if (ifShow) {
+                    <tbody class="bg-white">
+                        @for (item of listdata; track $index) {
+                        <tr class="text-gray-700">
+                            @for (x of getValue(item); track $index;) {
+                            <td class="px-4 py-3 text-ms font-semibold border">{{x}}</td>
+                            }
+                        </tr>
+                        }
+                    
+                    </tbody>
+                }
+                <tbody class="bg-white">
+                            @for (item of listdata; track $index) {
+                                                                <tr class="text-gray-700">
+                                @for (x of getValue(item); track $index;) {
+                                    <td class="px-4 py-3 text-ms font-semibold border">{{x}}</td>
+                                }
+                                                                </tr>
+                            }
+                          
+                </tbody>
+            </table>
+        </div>
+    </div>
+   <div class="flex">
+    <a class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 items-center h-full"
+        routerLink="/add">ADDDATA</a>
+            <a  class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 items-center h-full"
+                routerLink="/table-data">createtable</a>
+               
+        <div class="flex justify-end w-full">
+            <app-search (value)="get($event)"></app-search>
+        </div>
+   </div>
+</section>

@@ -1,0 +1,12 @@
+<div >
+    <div class="flex">
+        <label for="search-query"></label>
+        <input type="text" name="search-query" id="search-query"
+        placeholder="write query" [(ngModel)]="query"
+        class="border border-black outline-none rounded-l px-3 py-1" 
+        >
+         <button [disabled]="!query" (click)="onSearch()">
+        <i class="fa fa-search flex items-center bg-pink-500 text-white text-xl p-2 rounded-r-xl" aria-hidden="true"></i>
+         </button>
+    </div>
+</div>

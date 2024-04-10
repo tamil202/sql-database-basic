@@ -1,0 +1,12 @@
+<div class="">
+    <div class="flex gap-x-2">
+        <form  [formGroup]="this.formsData">
+            <select class="flex gap-x-2" formControlName="table">
+                @for (item of data; track $index) {
+                <option value={{item.Tables_in_test}}>{{item.Tables_in_test}}</option>
+                }
+            </select>
+        </form>
+           <button (click)="save()">save</button>
+    </div>
+</div>

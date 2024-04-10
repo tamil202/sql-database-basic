@@ -1,0 +1,88 @@
+<section class=" py-1 bg-blueGray-50">
+    <div class="w-full lg:w-8/12 px-4 mx-auto mt-6">
+        <div
+            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+            <div class="rounded-t bg-white mb-0 px-6 py-6">
+            </div>
+            <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                <div>
+                    <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                        Table Information
+                    </h6>
+                    <div class="flex flex-wrap">
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                    htmlfor="grid-password">
+                                    syntax
+                                </label>
+                                <input type="text" [(ngModel)]="table.syntax"
+                                  value="CREATE TABLE"  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ">
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                    htmlfor="grid-password">
+                                   Table Name
+                                </label>
+                                <input type="email" [(ngModel)]="table.tablename"
+                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full">
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                    htmlfor="grid-password">
+                                    data
+                                </label>
+                                <input type="text"[(ngModel)]="table.data"
+                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full e">
+                            </div>
+
+                        </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                    htmlfor="grid-password">
+                                    data type
+                                </label>
+                                 <select name="" id=""
+                                 [(ngModel)]="table.datatype"
+                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full "
+                                 >
+                                    @for (item of datatypes; track $index) {
+                                        <option value={{item}}>{{item}}</option>
+                                    }
+                                 </select>
+                                <div class="w-full lg:w-6/12 px-4">
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                            dataLength
+                                        </label>
+                                        <input type="text" [(ngModel)]="table.datalength"
+                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full e">
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                   <div class="flex justify-center w-full mt-5">
+                    <button (click)="addData()" [disabled]="!this.table.tablename || !this.table.data ||!this.table.datatype || !this.table.datalength"
+                        class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 ml-5">Add</button>
+                    </div>
+                   </div>
+                    
+                    <button 
+                    (click)="onSave()"
+                        [disabled]="!this.table.tablename"
+                        class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 ml-5"
+                        type="button">
+                        Save
+                    </button>
+                    <hr class="mt-6 border-b-1 border-blueGray-300">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
